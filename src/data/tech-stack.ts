@@ -1,4 +1,4 @@
-// The tech stack shown on the About page, grouped by category. `icon` must
+// The tech stack shown in the Tech Stack section, grouped by category. `icon` must
 // match a slug from the tech-stack-icons package
 // (https://www.tech-stack-icons.com/) — search the icon name on that site
 // to find the right slug before adding one here.
@@ -29,13 +29,14 @@ export const techStack: TechStackCategory[] = [
       { icon: "php", label: "PHP" },
       { icon: "codeigniter", label: "CodeIgniter" },
       { icon: "nodejs", label: "Node.js" },
+      { icon: "c++", label: "C++" },
     ],
   },
   {
     category: "Frontend",
     items: [
       { icon: "vuejs", label: "Vue.js" },
-      { label: "InertiaJS", fallbackIcon: Layers },
+      { label: "Inertia.js", fallbackIcon: Layers },
       { icon: "js", label: "JavaScript" },
       { icon: "html5", label: "HTML" },
       { icon: "css3", label: "CSS" },
@@ -44,6 +45,8 @@ export const techStack: TechStackCategory[] = [
       { icon: "headlessui", label: "Headless UI" },
       { icon: "vitejs", label: "Vite" },
       { label: "Axios", fallbackIcon: Send },
+      { icon: "jquery", label: "JQuery" },
+
     ],
   },
   {
@@ -52,6 +55,8 @@ export const techStack: TechStackCategory[] = [
       { icon: "mysql", label: "MySQL" },
       { icon: "microsoft", label: "Microsoft SQL Server" },
       { icon: "postgresql", label: "PostgreSQL" },
+      { icon: "mongodb", label: "MongoDB" },
+      { icon: "oracle", label: "Oracle" }
     ],
   },
   {
@@ -71,6 +76,7 @@ export const techStack: TechStackCategory[] = [
     items: [
       { icon: "figma", label: "Figma" },
       { icon: "canva", label: "Canva" },
+      { icon: "xd", label: "Xd" },
     ],
   },
   {

@@ -1,8 +1,9 @@
 import type { Metadata, Viewport } from "next";
 import { Figtree } from "next/font/google";
 import Script from "next/script";
-import { MobileTopBar } from "@/components/mobile-top-bar";
+import { Footer } from "@/components/footer";
 import { Sidebar } from "@/components/sidebar";
+import { SiteHeader } from "@/components/site-header";
 import { ThemeProvider } from "@/components/theme-provider";
 import "./globals.css";
 
@@ -14,7 +15,7 @@ const figtree = Figtree({
 });
 
 export const metadata: Metadata = {
-  title: "Kiel Garcia — Full-Stack Developer",
+  title: "Kiel Garcia | Full-Stack Developer",
   description: "Portfolio of Kiel Garcia, a full-stack developer.",
 };
 
@@ -29,7 +30,13 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${figtree.variable} h-full antialiased`}>
+    <html
+      lang="en"
+      // scroll-smooth: since nav links now jump between sections on this
+      // one page (see src/app/page.tsx) instead of loading new routes,
+      // this makes those jumps glide instead of snapping instantly.
+      className={`${figtree.variable} h-full scroll-smooth antialiased`}
+    >
       <body className="min-h-full flex flex-col bg-grid">
         {/* Runs before the page paints, so the right theme (light/dark)
             shows immediately instead of flashing the default and then
@@ -53,12 +60,31 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           `}
         </Script>
         <ThemeProvider>
-          <MobileTopBar />
-          <Sidebar />
-          {/* lg:pl-64 leaves room for the fixed Sidebar (see sidebar.tsx),
-              which doesn't take up space in normal document flow. The page
-              itself scrolls normally — the sidebar just stays in place. */}
-          <div className="flex flex-1 flex-col lg:pl-64">{children}</div>
+          <SiteHeader />
+          {/* Shared width/padding for the sidebar + content row — sections
+              no longer set their own max-w/px, so this is the one place
+              that controls how wide the page reads.
+              Padding (px-6 sm:px-16) lives on this OUTER div, while
+              mx-auto + max-w-6xl live on the INNER one — same split
+              SiteHeader and Footer use for their own max-w-6xl row. That
+              split matters: it's what makes the Sidebar's left edge line
+              up with the logo above it. If padding were on the same
+              element as max-w-6xl instead, the padding would eat into
+              that 6xl box and shift its content inward relative to
+              SiteHeader's (unpadded) 6xl box, throwing the two out of
+              alignment. h-full on the inner div lets it grow to match
+              this row's full height, so the flex row's default
+              align-items: stretch carries that full height down to
+              Sidebar's border-r divider. min-w-0 on the content column
+              stops long unbreakable content (e.g. a wide grid) from
+              forcing the row wider than its container. */}
+          <div className="flex-1 px-6 sm:px-16">
+            <div className="mx-auto flex h-full w-full max-w-6xl gap-8">
+              <Sidebar />
+              <div className="flex min-w-0 flex-1 flex-col">{children}</div>
+            </div>
+          </div>
+          <Footer />
         </ThemeProvider>
       </body>
     </html>

@@ -8,7 +8,12 @@ export function CertificationCard({ cert }: { cert: Certification }) {
   const { title, issuer, issued, credentialUrl } = cert;
 
   return (
-    <div className="flex h-full flex-col rounded-2xl border border-zinc-100 p-6 transition-colors hover:border-zinc-200 dark:border-zinc-900 dark:hover:border-zinc-800">
+    // break-inside-avoid + mb-5: same masonry-column requirements as
+    // RecommendationCard — see the comment there for why. The
+    // hover:border/shadow pair is the same "highlight" treatment used on
+    // ProjectCard and RecommendationCard, so hovering any card in any of
+    // the three masonry sections reads as the same interaction.
+    <div className="mb-5 flex flex-col rounded-2xl border border-zinc-100 p-6 break-inside-avoid transition-all hover:border-red-200 hover:shadow-md dark:border-zinc-900 dark:hover:border-red-900/50">
       <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-red-50 text-red-600 dark:bg-red-500/10 dark:text-red-400">
         <Award className="h-5 w-5" />
       </div>
@@ -16,7 +21,7 @@ export function CertificationCard({ cert }: { cert: Certification }) {
       <h3 className="mt-4 text-lg font-semibold text-black dark:text-white">
         {title}
       </h3>
-      <p className="mt-1 flex-1 text-sm text-zinc-500 dark:text-zinc-400">
+      <p className="mt-1 text-sm text-zinc-500 dark:text-zinc-400">
         {issuer} &middot; {issued}
       </p>
 

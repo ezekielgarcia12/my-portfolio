@@ -1,24 +1,25 @@
-// The nav links collapsed into a hamburger menu. navbar.tsx decides when
-// this shows vs. the full link list (currently below the `lg` breakpoint)
-// by wrapping it in a `lg:hidden` div — this component doesn't repeat that
-// breakpoint itself, so the two can't drift out of sync.
+// The nav links collapsed into a hamburger menu, shown below the `lg`
+// breakpoint where SiteHeader's inline link row would not fit — see
+// site-header.tsx, which wraps this in a `lg:hidden` div so the two can't
+// drift out of sync.
 // Needs to be a Client Component since it tracks open/closed state.
 "use client";
 
-import { useState, type ReactNode } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 
-type NavLink = { href: string; label: string };
+type NavLink = { id: string; href: string; label: string };
 
 export function MobileMenu({
   links,
-  children,
+  activeId,
 }: {
   links: NavLink[];
-  // Extra content shown below the links in the open panel — the social
-  // icons and theme toggle, in this case.
-  children?: ReactNode;
+  // Which link.id is currently in view, from useActiveSection — highlighted
+  // the same way SiteHeader's desktop link row highlights it. null while
+  // the visitor is still up at Hero, before any tracked section is active.
+  activeId: string | null;
 }) {
   const [open, setOpen] = useState(false);
 
@@ -39,25 +40,27 @@ export function MobileMenu({
         // it overlays the page as a full-width panel instead of being
         // squeezed into whatever space is left in the header's flex row.
         <div className="absolute inset-x-0 top-full border-t border-zinc-100 bg-white px-6 py-6 dark:border-zinc-900 dark:bg-black">
-          <ul className="flex flex-col gap-4 text-sm text-zinc-500 dark:text-zinc-400">
-            {links.map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  onClick={() => setOpen(false)}
-                  className="hover:text-black dark:hover:text-white"
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
+          <ul className="flex flex-col gap-4 text-sm">
+            {links.map((link) => {
+              const isActive = link.id === activeId;
+              return (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    onClick={() => setOpen(false)}
+                    aria-current={isActive ? "true" : undefined}
+                    className={
+                      isActive
+                        ? "font-medium text-red-600 underline underline-offset-4 dark:text-red-400"
+                        : "text-zinc-500 hover:text-black dark:text-zinc-400 dark:hover:text-white"
+                    }
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
-
-          {children && (
-            <div className="mt-6 flex items-center gap-5 border-t border-zinc-100 pt-6 dark:border-zinc-900">
-              {children}
-            </div>
-          )}
         </div>
       )}
     </div>

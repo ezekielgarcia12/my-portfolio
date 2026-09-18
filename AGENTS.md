@@ -23,15 +23,20 @@ standalone.
 - **Next.js** — App Router (not Pages Router)
 - **TypeScript**
 - **Tailwind CSS** for all styling — no separate CSS files, no CSS-in-JS
-- **shadcn/ui** for UI components (buttons, cards, nav, etc.)
-- **lucide-react** for icons (comes with shadcn/ui)
+- **Sera UI** for UI components (buttons, cards, nav, etc.) — replaces
+  shadcn/ui. Add components with `npx seraui@latest add <name> --url
+  https://seraui.com/registry` (the CLI's built-in default URL,
+  `seraui.seraprogrammer.com`, no longer resolves — always pass `--url`
+  explicitly). Components land in `components/`; move them into
+  `src/components/ui/` to match this project's layout.
+- **lucide-react** for icons
 
 ## Folder Structure
 
 ```
 app/            → pages (file-based routing)
 components/     → reusable UI pieces
-components/ui/  → shadcn/ui components (generated, don't hand-edit unless needed)
+components/ui/  → Sera UI components (generated, don't hand-edit unless needed)
 data/           → local content files (projects.ts, profile.ts) — the "fake database"
 lib/            → small helper functions
 public/images/  → static images, resume PDF, etc.
@@ -53,8 +58,9 @@ nesting without a clear reason.
 
 ## Design Requirements
 
-- Modern, minimal aesthetic — generous whitespace, clear type hierarchy,
-  one accent color.
+- Modern, minimal, **compact** aesthetic — tight but breathable spacing,
+  clear type hierarchy, one accent color. Avoid oversized section padding
+  or forcing sections to fill the viewport height.
 - **Mobile-first responsive.** Build for small screens first, then adjust
   with Tailwind's `sm:` / `md:` / `lg:` prefixes.
 - Dark mode support is a nice-to-have, not required.

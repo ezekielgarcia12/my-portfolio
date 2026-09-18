@@ -1,37 +1,31 @@
-// Home page ("/").
-// Shows a hero section: name, role, a short bio, and a photo (or a
-// placeholder until a real photo is added). Content comes from
-// src/data/profile.ts so it can be edited without touching this file.
+// Home page ("/") — this is the entire site. Instead of separate routes
+// per topic, every section lives here, stacked in one scrollable page.
+// Each section has an id (e.g. "projects") that the nav links in
+// Sidebar / MobileMenu jump to, and that the scroll-spy hook in
+// src/lib/use-active-section.ts watches to highlight the current one.
+//
+// To add a new section: build it as its own component in
+// src/components/sections/ (like the ones below), give it a unique
+// section id, then add it here and to NAV_LINKS in sidebar.tsx.
 
-import { profile } from "@/data/profile";
+import { AboutSection } from "@/components/sections/about-section";
+import { CertificationsSection } from "@/components/sections/certifications-section";
+import { ExperienceSection } from "@/components/sections/experience-section";
+import { HeroSection } from "@/components/sections/hero-section";
+import { ProjectsSection } from "@/components/sections/projects-section";
+import { RecommendationsSection } from "@/components/sections/recommendations-section";
+import { TechStackSection } from "@/components/sections/tech-stack-section";
 
 export default function Home() {
   return (
-    <div className="flex flex-1 items-center justify-center px-6 py-24 sm:px-16">
-      <main className="flex w-full max-w-4xl flex-col-reverse items-center gap-12 sm:flex-row sm:justify-between sm:gap-16">
-        {/* Text content: name, role, bio */}
-        <div className="flex flex-col items-center text-center sm:items-start sm:text-left">
-          <p className="text-sm font-medium tracking-wide text-red-600 dark:text-red-400">
-            {profile.role}
-          </p>
-          <h1 className="mt-3 text-4xl font-semibold tracking-tight text-black dark:text-white sm:text-5xl">
-            {profile.name}
-          </h1>
-          <p className="mt-6 max-w-md text-base leading-7 text-zinc-500 dark:text-zinc-400">
-            {profile.bio}
-          </p>
-        </div>
-
-        {/* Photo placeholder — swap for a real <Image> once you have a photo.
-            Drop the file in public/images/ and see the comment below. */}
-        <div className="flex h-36 w-36 shrink-0 items-center justify-center rounded-full bg-zinc-100 text-sm text-zinc-400 dark:bg-zinc-900 dark:text-zinc-600 sm:h-48 sm:w-48">
-          {/* Once you add a photo (e.g. public/images/avatar.jpg), replace this
-              div with:
-              <Image src="/images/avatar.jpg" alt={profile.name} fill className="rounded-full object-cover" />
-              inside a relatively-positioned parent the same size as this div. */}
-          Photo coming soon
-        </div>
-      </main>
+    <div className="flex flex-1 flex-col">
+      <HeroSection />
+      <AboutSection />
+      <TechStackSection />
+      <ExperienceSection />
+      <ProjectsSection />
+      <CertificationsSection />
+      <RecommendationsSection />
     </div>
   );
 }
