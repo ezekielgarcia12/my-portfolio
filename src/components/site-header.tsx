@@ -31,6 +31,9 @@ export const NAV_LINKS = [
   { id: "projects", href: "#projects", label: "Projects" },
   { id: "certifications", href: "#certifications", label: "Certifications" },
   { id: "recommendations", href: "#recommendations", label: "Recommendations" },
+  // Always shown in the accent color, not just when active — see the
+  // `id === "contact"` special case in Sidebar and MobileMenu.
+  { id: "contact", href: "#contact", label: "Got an idea? 💡" },
 ];
 
 // The scroll-spy needs to watch "home" (the Hero section) too, even

@@ -23,6 +23,15 @@ export const profile = {
   } as { light: string; dark: string } | null,
 };
 
+// Content for the Contact section (see
+// src/components/sections/contact-section.tsx).
+export const contact = {
+  email: "ezekielvargasgarcia@gmail.com",
+  // Your Calendly scheduling link (e.g. "https://calendly.com/your-name/30min").
+  // Leave as null to hide the "Book a call" card until you have a real one.
+  calendlyUrl: "https://calendly.com/ezekielvargasgarcia/30min",
+};
+
 // Quick-link icons shown in the navbar (see src/components/social-links.tsx).
 // Replace each url with your real profile link. Remove an entry to hide it.
 export const socialLinks = [

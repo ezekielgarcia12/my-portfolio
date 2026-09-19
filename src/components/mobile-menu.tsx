@@ -43,17 +43,37 @@ export function MobileMenu({
           <ul className="flex flex-col gap-4 text-sm">
             {links.map((link) => {
               const isActive = link.id === activeId;
+
+              // The "Got an idea?" link is a CTA, not just another
+              // section link — always shown in the accent color (not
+              // just when active), same plain hover-highlight treatment
+              // as every other link, no filled button — matches Sidebar.
+              if (link.id === "contact") {
+                return (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      onClick={() => setOpen(false)}
+                      aria-current={isActive ? "true" : undefined}
+                      className="block rounded-md px-3 py-2 font-medium text-red-600 transition-colors hover:bg-zinc-100 dark:text-red-400 dark:hover:bg-zinc-900"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                );
+              }
+
               return (
                 <li key={link.href}>
                   <Link
                     href={link.href}
                     onClick={() => setOpen(false)}
                     aria-current={isActive ? "true" : undefined}
-                    className={
+                    className={`block rounded-md px-3 py-2 transition-colors ${
                       isActive
-                        ? "font-medium text-red-600 underline underline-offset-4 dark:text-red-400"
-                        : "text-zinc-500 hover:text-black dark:text-zinc-400 dark:hover:text-white"
-                    }
+                        ? "bg-zinc-100 font-medium text-red-600 dark:bg-zinc-900 dark:text-red-400"
+                        : "text-zinc-500 hover:bg-zinc-100 hover:text-black dark:text-zinc-400 dark:hover:bg-zinc-900 dark:hover:text-white"
+                    }`}
                   >
                     {link.label}
                   </Link>

@@ -34,6 +34,25 @@ export function Sidebar() {
         <ul className="flex flex-col gap-1 text-sm">
           {NAV_LINKS.map((link) => {
             const isActive = link.id === activeId;
+
+            // The "Got an idea?" link is a CTA, not just another section
+            // link — always shown in the accent color (not just when
+            // active) so it stands out, but same plain hover-highlight
+            // treatment as every other link, no filled button.
+            if (link.id === "contact") {
+              return (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    aria-current={isActive ? "true" : undefined}
+                    className="block rounded-md px-3 py-2 font-medium text-red-600 transition-colors hover:bg-zinc-100 dark:text-red-400 dark:hover:bg-zinc-900"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              );
+            }
+
             return (
               <li key={link.href}>
                 <Link
