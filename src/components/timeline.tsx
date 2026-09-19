@@ -20,15 +20,19 @@ function formatDuration(range: { startDate: string; endDate: string | null }) {
 }
 
 // A position's description is either one paragraph or a list of bullet
-// points (e.g. a set of achievements) — see src/data/experience.ts.
+// points (e.g. a set of achievements), or left out entirely for a
+// milestone that doesn't need one — see src/data/experience.ts.
 // `className` lets each call site control its own spacing above this.
 function Description({
   description,
   className,
 }: {
-  description: string | string[];
+  description?: string | string[];
   className: string;
 }) {
+  if (description === undefined) {
+    return null;
+  }
   if (Array.isArray(description)) {
     return (
       <ul

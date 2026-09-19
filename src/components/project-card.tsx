@@ -1,7 +1,7 @@
 // A single project's card: name, description, tech stack badges, and
 // optional links to the repo and/or live site. Used by the Projects page
 // to render each entry from src/data/projects.ts.
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Rocket } from "lucide-react";
 import { Badge } from "@/components/badge";
 import { GitHubIcon } from "@/components/icons/social-icons";
 import type { Project } from "@/data/projects";
@@ -15,8 +15,10 @@ export function ProjectCard({ project }: { project: Project }) {
     // hover:border/shadow pair is the same "highlight" treatment used on
     // CertificationCard and RecommendationCard, so hovering any card in
     // any of the three masonry sections reads as the same interaction.
-    <div className="mb-5 flex flex-col rounded-2xl border border-zinc-100 p-6 break-inside-avoid transition-all hover:border-red-200 hover:shadow-md dark:border-zinc-900 dark:hover:border-red-900/50">
-      <h3 className="text-lg font-semibold text-black dark:text-white">
+    <div className="mb-5 flex flex-col rounded-2xl border border-zinc-100 bg-white p-6 break-inside-avoid transition-all hover:border-red-200 hover:shadow-md dark:border-zinc-900 dark:bg-zinc-950 dark:hover:border-red-900/50">
+      <Rocket className="h-5 w-5 text-red-600 dark:text-red-400" />
+
+      <h3 className="mt-4 text-lg font-semibold text-black dark:text-white">
         {title}
       </h3>
       <p className="mt-0.5 text-sm text-zinc-500 dark:text-zinc-400">

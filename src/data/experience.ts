@@ -24,7 +24,9 @@ export type ExperiencePosition = {
   endDate: string | null;
   // A single paragraph, or a list of bullet points (e.g. a set of
   // achievements/responsibilities) — Timeline renders each differently.
-  description: string | string[];
+  // Optional — leave it out for a milestone that doesn't need one (e.g.
+  // "Wrote my first Hello, World!").
+  description?: string | string[];
 };
 
 export type ExperienceGroup = {
@@ -94,15 +96,13 @@ export const experience: ExperienceGroup[] = [
     id: "graduated-aics",
     startDate: "2015",
     endDate: "2019",
-    company: "Asian Institute of Computer Studies",
+    company: "Asian Institute of Computer Studies - Quezon City, PH",
     positions: [
       {
         id: "graduated-aics-position",
-        title: "Graduated from Asian Institute of Computer Studies",
+        title: "BS in Computer Science",
         startDate: "2015",
         endDate: "2019",
-        description:
-          "Picked up HTML, CSS, and PHP, and started building small personal projects.",
       },
     ],
   },
@@ -116,8 +116,6 @@ export const experience: ExperienceGroup[] = [
         title: 'Wrote my first "Hello, World!"',
         startDate: "2015",
         endDate: "2015",
-        description:
-          "Typed out my very first program and got hooked on turning ideas into code.",
       },
     ],
   },

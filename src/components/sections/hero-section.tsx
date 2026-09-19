@@ -71,7 +71,16 @@ export function HeroSection() {
             <Greeting />
           </p>
           <h1 className="mt-1 text-3xl font-semibold tracking-tight text-black dark:text-white sm:text-4xl">
-            I&apos;m {name}
+            I&apos;m{" "}
+            {/* bg-clip-text + text-transparent: the gradient is painted
+                as the element's background, then clipped to the shape of
+                the text itself, so the text reads as gradient-colored
+                instead of solid black/white. Both stops are shades of the
+                site's one accent color (red) rather than a second hue, to
+                stay within the "one accent color" design rule. */}
+            <span className="bg-gradient-to-r from-red-700 to-red-400 bg-clip-text text-transparent dark:from-red-400 dark:to-red-200">
+              {name}
+            </span>
           </h1>
           <p className="mt-4 max-w-md text-base leading-7 whitespace-pre-line text-zinc-500 dark:text-zinc-400">
             {profile.bio}

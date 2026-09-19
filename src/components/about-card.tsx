@@ -12,7 +12,7 @@ export function AboutCard({
   return (
     // break-inside-avoid + mb-5: same masonry-column requirements as the
     // other cards — see recommendation-card.tsx for why.
-    <div className="mb-5 break-inside-avoid rounded-2xl border border-zinc-100 p-6 transition-all hover:border-red-200 hover:shadow-md dark:border-zinc-900 dark:hover:border-red-900/50">
+    <div className="mb-5 break-inside-avoid rounded-2xl border border-zinc-100 bg-white p-6 transition-all hover:border-red-200 hover:shadow-md dark:border-zinc-900 dark:bg-zinc-950 dark:hover:border-red-900/50">
       <h3 className="text-sm font-semibold tracking-wide text-zinc-400 uppercase dark:text-zinc-500">
         {title}
       </h3>

@@ -13,10 +13,8 @@ export function CertificationCard({ cert }: { cert: Certification }) {
     // hover:border/shadow pair is the same "highlight" treatment used on
     // ProjectCard and RecommendationCard, so hovering any card in any of
     // the three masonry sections reads as the same interaction.
-    <div className="mb-5 flex flex-col rounded-2xl border border-zinc-100 p-6 break-inside-avoid transition-all hover:border-red-200 hover:shadow-md dark:border-zinc-900 dark:hover:border-red-900/50">
-      <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-red-50 text-red-600 dark:bg-red-500/10 dark:text-red-400">
-        <Award className="h-5 w-5" />
-      </div>
+    <div className="mb-5 flex flex-col rounded-2xl border border-zinc-100 bg-white p-6 break-inside-avoid transition-all hover:border-red-200 hover:shadow-md dark:border-zinc-900 dark:bg-zinc-950 dark:hover:border-red-900/50">
+      <Award className="h-5 w-5 text-red-600 dark:text-red-400" />
 
       <h3 className="mt-4 text-lg font-semibold text-black dark:text-white">
         {title}

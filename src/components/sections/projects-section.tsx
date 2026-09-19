@@ -21,6 +21,10 @@ export function ProjectsSection() {
       <p className="mt-3 max-w-xl text-base leading-7 text-zinc-500 dark:text-zinc-400">
         A few projects I&apos;ve worked on, with the stack behind each one.
       </p>
+      <p className="mt-1 max-w-xl text-sm leading-6 text-zinc-400 dark:text-zinc-500">
+        Most were built for internal business use, so the source code and
+        live demos aren&apos;t publicly available.
+      </p>
 
       {/* CSS multi-column layout, not `grid` — see the note in
           recommendations-section.tsx for why. */}

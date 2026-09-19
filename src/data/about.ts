@@ -9,6 +9,10 @@ export type PersonalityTrait = {
   label: string;
 };
 
+// Where you're based — shown in its own small card at the top of the
+// About section.
+export const location = "CSJDM Bulacan, Philippines";
+
 // Your personality, by whichever framework(s) you like — DISC (`traits`)
 // and/or Myers-Briggs (`mbti`). Change freely if you retake an assessment
 // or want to phrase it differently.
@@ -16,58 +20,62 @@ export const personality = {
   mbti: "INTP-A (Logician)",
   traits: [
     // The 5 Myers-Briggs/16Personalities dimensions for INTP-A — each one
-    // is a spectrum between two opposites (e.g. Introverted <-> Extroverted);
-    // the label here is whichever side the assessment placed you on.
-    { code: "I", label: "Introverted" },
-    { code: "N", label: "Intuitive" },
-    { code: "T", label: "Thinking" },
-    { code: "P", label: "Prospecting" },
-    { code: "A", label: "Assertive" },
+    // is a spectrum between two opposites (e.g. Introverted <-> Extroverted),
+    // with the percentage the assessment gave for the side shown here.
+    { code: "I", label: "57% Introvert" },
+    { code: "N", label: "67% Intuitive" },
+    { code: "T", label: "60% Thinking" },
+    { code: "P", label: "75% Prospecting" },
+    { code: "A", label: "57% Assertive" },
     // DISC traits.
-    { code: "S", label: "Steady" },
-    { code: "C", label: "Compliant" },
+    { code: "SC", label: "Steady & Compliant" },
   ] as PersonalityTrait[],
   // Where these results came from — shown as links at the foot of the
   // Personality card.
   references: [
     { label: "16Personalities test", url: "https://www.16personalities.com/free-personality-test" },
-    { label: "DISC test", url: "https://testlibrary.com/disc-test/" },
+    { label: "DISC personality test", url: "https://testlibrary.com/disc-test/" },
   ],
 };
 
-export const interests: string[] = ["Gaming", "Cycling", "Movies", "Sepak Takraw"];
+// The steps of your workflow, in order.
+export const howIWork: string[] = [
+  "Understand First",
+  "Plan & Design",
+  "Build",
+  "Test",
+  "Get Feedback",
+  "Improve",
+];
 
-export const currentlyLearning: string[] = [
-  "AI Agents",
-  "LLMs",
-  "RAGs",
-  "Python",
-  "Data Engineering",
-  "Cloud Engineering",
+export const currentlyExploring: string[] = [
+  "LLM",
+  "Neural Networks",
+  "Evaluation and RAGAS",
+  "Vector DB + RAG",
 ];
 
 // Placeholder entries — replace with real ones, or trim the list down if
 // you only speak one.
 export const languages: string[] = ["English", "Filipino"];
 
-// Placeholder entries — replace with real, actually-fun facts about you.
-export const funFacts: string[] = [
-  "I can solve a Rubik's cube in under two minutes.",
-  "I've never left the country, but it's on my bucket list.",
-  "My IDE theme has to be dark mode or I can't focus.",
+// What you're into outside of work/tech — replaces the old separate
+// interests / music-taste / movie-genre cards.
+export const nonTechnicalSide: string[] = [
+  "Cycling",
+  "Movies and Series",
+  "Drawing",
+  "Gaming",
+  "Music",
 ];
 
-// Placeholder entries — replace with what you actually listen to.
-export const musicGenres: string[] = ["Lo-fi", "R&B", "Pop", "City Pop"];
-
-// Placeholder entries — replace with what you actually watch.
-export const movieGenres: string[] = ["Sci-Fi", "Thriller", "Anime", "Heist"];
-
-// Placeholder entries — replace with your real editor/IDE extension setup.
-export const ideExtensions: string[] = [
-  "GitHub Copilot",
-  "ESLint",
-  "Prettier",
-  "GitLens",
-  "Tailwind CSS IntelliSense",
+// Small preferences/values/miscellany that don't fit any other card.
+export const others: string[] = [
+  "IDE Theme Tokyo Night",
+  "Windows",
+  "Minimalist UI",
+  "Clean code",
+  "Libra",
+  "Year of the Tiger",
+  "5x coffee a day",
 ];

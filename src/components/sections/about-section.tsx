@@ -1,20 +1,19 @@
-// About Me section — personality type, plus a handful of smaller
-// subsections (interests, what I'm learning, values, languages, fun
-// facts), each shown as its own card in a masonry layout — see
-// recommendations-section.tsx for why `columns`, not `grid`. Content comes
-// from src/data/about.ts so it can be edited without touching this file.
+// About Me section — location, personality type, plus a handful of
+// smaller subsections (how I work, what I'm exploring, languages,
+// non-technical interests), each shown as its own card in a masonry
+// layout — see recommendations-section.tsx for why `columns`, not
+// `grid`. Content comes from src/data/about.ts so it can be edited
+// without touching this file.
 
-import { ExternalLink } from "lucide-react";
 import { AboutCard } from "@/components/about-card";
 import { Badge } from "@/components/badge";
 import {
-  currentlyLearning,
-  funFacts,
-  ideExtensions,
-  interests,
+  currentlyExploring,
+  howIWork,
   languages,
-  movieGenres,
-  musicGenres,
+  location,
+  nonTechnicalSide,
+  others,
   personality,
 } from "@/data/about";
 
@@ -32,6 +31,10 @@ export function AboutSection() {
       </h2>
 
       <div className="mt-8 columns-1 gap-5 sm:columns-2 lg:columns-3">
+        <AboutCard title="Where I'm Based">
+          <Badge>{location}</Badge>
+        </AboutCard>
+
         <AboutCard title="My Personality">
           <div className="flex flex-wrap gap-2">
             <Badge>MBTI: {personality.mbti}</Badge>
@@ -40,36 +43,51 @@ export function AboutSection() {
             ))}
           </div>
 
-          {/* Reference links to where these results came from, at the
-              foot of the card — same link style CertificationCard uses
-              for "View credential". */}
-          <div className="mt-4 space-y-1.5 border-t border-zinc-100 pt-3 dark:border-zinc-900">
-            {personality.references.map((ref) => (
-              <a
-                key={ref.url}
-                href={ref.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-1 text-xs font-medium text-zinc-500 hover:text-black dark:text-zinc-400 dark:hover:text-white"
-              >
-                {ref.label}
-                <ExternalLink className="h-3 w-3" />
-              </a>
+          {/* One sentence crediting both sources, each name linking out
+              to the test it came from — assumes personality.references
+              always has exactly these two entries, in this order. */}
+          <p className="mt-4 border-t border-zinc-100 pt-3 text-xs text-zinc-500 dark:border-zinc-900 dark:text-zinc-400">
+            These results are based on the{" "}
+            <a
+              href={personality.references[0].url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-zinc-600 underline decoration-zinc-300 underline-offset-2 hover:text-black dark:text-zinc-300 dark:decoration-zinc-700 dark:hover:text-white"
+            >
+              {personality.references[0].label}
+            </a>{" "}
+            and the{" "}
+            <a
+              href={personality.references[1].url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-zinc-600 underline decoration-zinc-300 underline-offset-2 hover:text-black dark:text-zinc-300 dark:decoration-zinc-700 dark:hover:text-white"
+            >
+              {personality.references[1].label}
+            </a>
+            .
+          </p>
+        </AboutCard>
+
+        <AboutCard title="How I Work">
+          <div className="flex flex-wrap gap-2">
+            {howIWork.map((step) => (
+              <Badge key={step}>{step}</Badge>
             ))}
           </div>
         </AboutCard>
 
-        <AboutCard title="When I'm Not Working">
+        <AboutCard title="Non-technical Side">
           <div className="flex flex-wrap gap-2">
-            {interests.map((interest) => (
-              <Badge key={interest}>{interest}</Badge>
+            {nonTechnicalSide.map((thing) => (
+              <Badge key={thing}>{thing}</Badge>
             ))}
           </div>
         </AboutCard>
 
-        <AboutCard title="Currently Learning">
+        <AboutCard title="Currently Exploring">
           <div className="flex flex-wrap gap-2">
-            {currentlyLearning.map((skill) => (
+            {currentlyExploring.map((skill) => (
               <Badge key={skill}>{skill}</Badge>
             ))}
           </div>
@@ -83,34 +101,10 @@ export function AboutSection() {
           </div>
         </AboutCard>
 
-        <AboutCard title="Fun Facts">
+        <AboutCard title="Others">
           <div className="flex flex-wrap gap-2">
-            {funFacts.map((fact) => (
-              <Badge key={fact}>{fact}</Badge>
-            ))}
-          </div>
-        </AboutCard>
-
-        <AboutCard title="Music Taste">
-          <div className="flex flex-wrap gap-2">
-            {musicGenres.map((genre) => (
-              <Badge key={genre}>{genre}</Badge>
-            ))}
-          </div>
-        </AboutCard>
-
-        <AboutCard title="Movie Genres">
-          <div className="flex flex-wrap gap-2">
-            {movieGenres.map((genre) => (
-              <Badge key={genre}>{genre}</Badge>
-            ))}
-          </div>
-        </AboutCard>
-
-        <AboutCard title="IDE Extensions">
-          <div className="flex flex-wrap gap-2">
-            {ideExtensions.map((extension) => (
-              <Badge key={extension}>{extension}</Badge>
+            {others.map((thing) => (
+              <Badge key={thing}>{thing}</Badge>
             ))}
           </div>
         </AboutCard>

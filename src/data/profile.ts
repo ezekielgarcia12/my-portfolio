@@ -8,8 +8,9 @@ export const profile = {
   // A blank line here becomes a paragraph break, a single line break stays
   // a line break — see the bio <p> in hero-section.tsx, which has
   // `whitespace-pre-line` so the browser renders this exactly as typed.
-  bio: `A full-stack developer based in CSJDM, Bulacan, PH. 
-  With 7+ years of experience turning ideas into practical, reliable applications. I enjoy solving problems, building clean solutions, and learning new technologies along the way.
+  bio: `A full-stack developer with 7+ years of experience 
+  turning ideas into practical, reliable applications. 
+  I enjoy solving problems, building clean solutions, and learning new technologies along the way.
 
   Got an idea, a project, or a problem to solve?
   Let's connect and create something amazing!`,
