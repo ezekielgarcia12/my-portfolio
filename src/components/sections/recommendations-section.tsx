@@ -4,8 +4,13 @@
 // bottom within each column, packing tightly instead of all lining up to
 // the height of the tallest card in a row like a regular grid would.
 
+import { ArrowUpRight } from "lucide-react";
 import { RecommendationCard } from "@/components/recommendation-card";
 import { recommendations } from "@/data/recommendations";
+
+// Where visitors can submit their own testimonial — a Google Form, not a
+// backend endpoint, so this stays fine for Phase 1 (frontend only).
+const TESTIMONIAL_FORM_URL = "https://forms.gle/6VawYynvsXoV3g1m9";
 
 export function RecommendationsSection() {
   return (
@@ -19,9 +24,24 @@ export function RecommendationsSection() {
       <h2 className="mt-2 text-3xl font-semibold tracking-tight text-black dark:text-white">
         What people say
       </h2>
-      <p className="mt-3 max-w-xl text-base leading-7 text-zinc-500 dark:text-zinc-400">
-        A few words from people I&apos;ve worked with.
-      </p>
+
+      {/* justify-between puts the button on the far right, inline with
+          the description, instead of stacked below it. */}
+      <div className="mt-3 flex items-center justify-between gap-4">
+        <p className="max-w-xl text-base leading-7 text-zinc-500 dark:text-zinc-400">
+          A few words from people I&apos;ve worked with.
+        </p>
+
+        <a
+          href={TESTIMONIAL_FORM_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex w-fit shrink-0 items-center gap-1.5 rounded-lg bg-red-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-red-700 dark:bg-red-500 dark:hover:bg-red-400"
+        >
+          Submit a testimonial
+          <ArrowUpRight className="h-4 w-4" />
+        </a>
+      </div>
 
       {/* CSS multi-column layout, not `grid` — that's what gives the
           masonry effect (cards packed by column instead of forced into

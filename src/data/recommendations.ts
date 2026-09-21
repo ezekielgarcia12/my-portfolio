@@ -14,16 +14,16 @@ export type Recommendation = {
 
 export const recommendations: Recommendation[] = [
   {
-    name: "Maria Santos",
-    role: "Engineering Manager, Acme Inc.",
+    name: "Rachelle Carillo",
+    role: "Business Analyst, Herma Corporation",
     quote:
-      "One of the most reliable developers I've worked with. Give them a vague ticket and they'll come back with a clean, well-thought-out solution — no hand-holding required.",
+      "It’s been great working with you as a developer. I admire your creative mindset and how you always find ways to improve things and solve problems efficiently. You are approachable, supportive, and dedicated to delivering quality work. Thank you for your contributions and for being a great teammate. Keep up the good work!",
   },
   {
-    name: "James Cruz",
-    role: "Product Designer, Acme Inc.",
+    name: "Kevin Chavez",
+    role: "Network & Infrastructure Supervisor, Herma Corp.",
     quote:
-      "Great to collaborate with on the design-to-code handoff. Always asks the right questions upfront instead of guessing, and the end result matches the design almost pixel for pixel.",
+      `Kiel is a hardworking, diligent programmer with a keen eye for clean, user-friendly design and strong analytical skills in data and database work. He is also a kind, approachable colleague who is always willing to help and share his knowledge with others.`,
   },
   {
     name: "Alex Lacsa",

@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Figtree } from "next/font/google";
+import { Space_Grotesk } from "next/font/google";
 import Script from "next/script";
 import { Footer } from "@/components/footer";
 import { Sidebar } from "@/components/sidebar";
@@ -9,8 +9,8 @@ import "./globals.css";
 
 // The site's one font, for a clean minimalist look. Loaded here (instead of
 // a <link> tag) so Next.js can self-host it — faster and no layout shift.
-const figtree = Figtree({
-  variable: "--font-figtree",
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-space-grotesk",
   subsets: ["latin"],
 });
 
@@ -35,7 +35,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       // scroll-smooth: since nav links now jump between sections on this
       // one page (see src/app/page.tsx) instead of loading new routes,
       // this makes those jumps glide instead of snapping instantly.
-      className={`${figtree.variable} h-full scroll-smooth antialiased`}
+      className={`${spaceGrotesk.variable} h-full scroll-smooth antialiased`}
     >
       <body className="min-h-full flex flex-col bg-grid">
         {/* Runs before the page paints, so the right theme (light/dark)

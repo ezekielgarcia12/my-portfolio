@@ -17,7 +17,7 @@ export function CertificationsSection() {
         Certifications
       </p>
       <h2 className="mt-2 text-3xl font-semibold tracking-tight text-black dark:text-white">
-        Licenses &amp; Certifications
+        Trainings &amp; Certifications
       </h2>
       <p className="mt-3 max-w-xl text-base leading-7 text-zinc-500 dark:text-zinc-400">
         Courses and certifications I&apos;ve completed along the way.
