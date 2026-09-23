@@ -71,8 +71,8 @@ export const recommendations: Recommendation[] = [
       "Great at pushing back on scope creep in a way that doesn't feel like friction. They'll usually come back with a smaller version of the idea that ships sooner and still solves the actual problem, which has saved more than one deadline.",
   },
   {
-    name: "Grace Lim",
-    role: "Frontend Engineer, Northwind Logistics",
-    quote: "Mentored me through my first big React refactor — patient, clear, never made me feel dumb for asking questions.",
+    name: "Ace Morada",
+    role: "AI Automation Specialist / Technical Support Engr., Pointwest",
+    quote: "Kiel is my friend an exceptional developer who consistently delivers high-quality work. Beyond being a great collaborator, he’s been like a mentor to me when it comes to web and app development. His guidance, problem-solving skills, and attention to detail made a huge difference in our work together.",
   },
 ];
