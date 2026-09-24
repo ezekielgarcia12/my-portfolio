@@ -37,38 +37,15 @@ export const recommendations: Recommendation[] = [
   // lining up like a regular grid. Trim back down once real
   // recommendations come in.
   {
-    name: "Priya Nair",
-    role: "CTO, Northwind Logistics",
-    quote: "Turned our messy spec into a working prototype in under a week. Rare speed without cutting corners.",
+    name: "Llod San Lorenzo",
+    role: "InfoSec Officer, Herma Corp.",
+    quote: "Kiel is very passionate and easy to work with. We collaborated on various cybersecurity initiatives, including threat simulations such as phishing simulation exercises, security assessments, and strategic efforts to enhance the organization's security posture. His contributions also extended to improving the Software Development Lifecycle (SDLC), strengthening development processes and policies, implementing security practices and controls, and promoting secure coding standards and best practices.",
   },
   {
-    name: "Daniel Ortiz",
-    role: "Senior Backend Engineer, Acme Inc.",
+    name: "Albert Miguela",
+    role: "Application Developer, Herma Corporation",
     quote:
-      "Solid at debugging gnarly production issues under pressure. I've paired with them on a few 2am incidents and they stay calm, methodical, and actually find the root cause instead of just patching symptoms.",
-  },
-  {
-    name: "Sofia Reyes",
-    role: "Founder, Reyes & Co.",
-    quote:
-      "Hired them for a small freelance job and ended up bringing them back for three more projects. Communicates clearly, sets realistic timelines, and — more importantly — hits them.",
-  },
-  {
-    name: "Marcus Webb",
-    role: "Engineering Director, Northwind Logistics",
-    quote: "Consistently one of the strongest code reviewers on the team.",
-  },
-  {
-    name: "Liza Fernandez",
-    role: "QA Lead, Acme Inc.",
-    quote:
-      "Writes code that's genuinely easy to test — clear boundaries, predictable state, no hidden side effects. Cuts our QA cycle time down noticeably whenever their work is in a release.",
-  },
-  {
-    name: "Tom Bracken",
-    role: "Product Manager, Reyes & Co.",
-    quote:
-      "Great at pushing back on scope creep in a way that doesn't feel like friction. They'll usually come back with a smaller version of the idea that ships sooner and still solves the actual problem, which has saved more than one deadline.",
+      "Honestly, Sir Kiel is a genuinely strong technical thinker when it comes to development. He consistently brings solid ideas on how to simplify implementation, improve architecture, and streamline the development workflow. He's also great at technical collaboration communicating clearly on design decisions, giving constructive code review and architecture feedback, and aligning with the team on best practices. Overall, working with him is smooth, efficient, and hassle-free.",
   },
   {
     name: "Ace Morada",
