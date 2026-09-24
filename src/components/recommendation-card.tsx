@@ -24,8 +24,8 @@ export function RecommendationCard({ rec }: { rec: Recommendation }) {
     // same column — CSS columns only support column-gap, not row-gap, so
     // this has to live on each card instead of the parent's `gap-5`. The
     // hover:border/shadow pair is the same "highlight" treatment used on
-    // ProjectCard and CertificationCard, so hovering any card in any of
-    // the three masonry sections reads as the same interaction.
+    // ProjectCard and CertificationCard, so hovering any card in any
+    // section reads as the same interaction.
     <div className="mb-5 flex flex-col rounded-2xl border border-zinc-100 bg-white p-6 break-inside-avoid transition-all hover:border-red-200 hover:shadow-md dark:border-zinc-900 dark:bg-zinc-950 dark:hover:border-red-900/50">
       <Quote className="h-5 w-5 text-red-600 dark:text-red-400" />
 

@@ -1,8 +1,7 @@
 // Certifications section — every certification from
-// src/data/certifications.ts as a masonry layout: cards flow into columns
-// (one on mobile, more as the screen gets wider) and stack top to bottom
-// within each column — see recommendations-section.tsx, which uses the
-// same pattern.
+// src/data/certifications.ts, shown as a single stack of full-width rows
+// (one certification per row, top to bottom) — the same layout as the
+// Projects section.
 
 import { CertificationCard } from "@/components/certification-card";
 import { certifications } from "@/data/certifications";
@@ -23,9 +22,9 @@ export function CertificationsSection() {
         Courses and certifications I&apos;ve completed along the way.
       </p>
 
-      {/* CSS multi-column layout, not `grid` — see the note in
-          recommendations-section.tsx for why. */}
-      <div className="mt-8 columns-1 gap-5 sm:columns-2 lg:columns-3">
+      {/* A simple vertical stack: flex-col + gap puts even spacing
+          between rows at every screen size. */}
+      <div className="mt-8 flex flex-col gap-3">
         {certifications.map((cert) => (
           <CertificationCard key={cert.title} cert={cert} />
         ))}

@@ -1,7 +1,6 @@
-// Projects section — every project from src/data/projects.ts as a masonry
-// layout: cards flow into columns (one on mobile, more as the screen gets
-// wider) and stack top to bottom within each column — see
-// recommendations-section.tsx, which uses the same pattern.
+// Projects section — every project from src/data/projects.ts, shown as a
+// single stack of full-width rows (one project per row, top to bottom) so
+// each description and tech stack has room to read left to right.
 
 import { ProjectCard } from "@/components/project-card";
 import { projects } from "@/data/projects";
@@ -26,9 +25,9 @@ export function ProjectsSection() {
         live demos aren&apos;t publicly available.
       </p>
 
-      {/* CSS multi-column layout, not `grid` — see the note in
-          recommendations-section.tsx for why. */}
-      <div className="mt-8 columns-1 gap-5 sm:columns-2 lg:columns-3">
+      {/* A simple vertical stack: flex-col + gap puts even spacing
+          between rows at every screen size. */}
+      <div className="mt-8 flex flex-col gap-4">
         {projects.map((project) => (
           <ProjectCard key={project.title} project={project} />
         ))}
