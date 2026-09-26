@@ -42,6 +42,11 @@ export const recommendations: Recommendation[] = [
     quote: "Kiel is very passionate and easy to work with. We collaborated on various cybersecurity initiatives, including threat simulations such as phishing simulation exercises, security assessments, and strategic efforts to enhance the organization's security posture. His contributions also extended to improving the Software Development Lifecycle (SDLC), strengthening development processes and policies, implementing security practices and controls, and promoting secure coding standards and best practices.",
   },
   {
+    name: "Raph De Luis",
+    role: "Network & Infrastructure Engr., Herma Corp.",
+    quote: "Working with Kiel never feels like work at all, we're always in sync on what needs to happen at every stage of development. Every process has been smooth thanks to him. Beyond his own responsibilities, he's also taken the time to mentor me on infrastructure management, including how to properly structure database connections with applications, which has directly improved how I handle my own KPIs. He's the kind of teammate who makes everyone around him better.",
+  },
+  {
     name: "Albert Miguela",
     role: "Application Developer, Herma Corporation",
     quote:

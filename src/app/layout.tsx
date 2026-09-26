@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Space_Grotesk } from "next/font/google";
 import Script from "next/script";
+import { Analytics } from "@vercel/analytics/next";
 import { Footer } from "@/components/footer";
 import { Sidebar } from "@/components/sidebar";
 import { SiteHeader } from "@/components/site-header";
@@ -86,6 +87,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           </div>
           <Footer />
         </ThemeProvider>
+        {/* Vercel Web Analytics — sends anonymous page-view data to
+            Vercel. It only reports on the live Vercel deployment (and only
+            after Analytics is enabled in the Vercel dashboard); in
+            `npm run dev` it just logs to the browser console. */}
+        <Analytics />
       </body>
     </html>
   );

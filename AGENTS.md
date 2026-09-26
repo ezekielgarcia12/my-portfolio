@@ -30,6 +30,8 @@ standalone.
   explicitly). Components land in `components/`; move them into
   `src/components/ui/` to match this project's layout.
 - **lucide-react** for icons
+- **@vercel/analytics** for anonymous page-view tracking — rendered once
+  as `<Analytics />` in `src/app/layout.tsx`. No backend involved.
 
 ## Folder Structure
 
