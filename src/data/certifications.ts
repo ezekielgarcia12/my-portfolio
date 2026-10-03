@@ -20,38 +20,44 @@ export type Certification = {
 // sorting happens at render time).
 export const certifications: Certification[] = [
   {
+    title: "Application Security for Developers and DevOps Professionals",
+    issuer: "IBM (Coursera)",
+    issued: "October 2026",
+    credentialUrl: "https://drive.google.com/file/d/1hs4Lv0bdptqRdawCRHZ9UvSldVZMUjkD/view?usp=sharing"
+  },
+  {
     title: "UX/UI Design Fundamentals: Usability and Visual Principles",
-    issuer: "Coursera (SkillUp)",
+    issuer: "SkillUp (Coursera)",
     issued: "June 2026",
     credentialUrl: "https://drive.google.com/file/d/1jb5OFqNIdo0y-qvdy1OjZzPbXKpXTwNo/view?usp=sharing",
   },
   {
     title: "Microservice Architectures",
-    issuer: "Coursera (Vanderbilt University)",
+    issuer: "Vanderbilt University (Coursera)",
     issued: "December 2025",
     credentialUrl: "https://drive.google.com/file/d/1z5ykdIMJACAG7V3hTxz2XUMlsxZ6D90U/view?usp=sharing",
   },
   {
     title: "Containers & Kubernetes Essentials",
-    issuer: "Coursera (IBM)",
+    issuer: "IBM (Coursera)",
     issued: "December 2025",
     credentialUrl: "https://drive.google.com/file/d/1px46hX_BVUsP9qd_dWAr_Z2hfcz55N_v/view?usp=sharing",
   },
   {
     title: "Full Stack Application Development",
-    issuer: "Coursera (IBM)",
+    issuer: "IBM (Coursera)",
     issued: "October 2025",
     credentialUrl: "https://drive.google.com/file/d/1azlLOuuXiCEgmn_P3hLxDWuqxzraw0Dg/view?usp=sharing",
   },
   {
     title: "Agile Software Development",
-    issuer: "Coursera (University of Minnesota)",
+    issuer: "University of Minnesota (Coursera)",
     issued: "August 2025",
     credentialUrl: "https://drive.google.com/file/d/1AnkH7XSyjnk_7PjG1eW1sUfqg5iCVsTI/view?usp=sharing",
   },
   {
     title: "Software Engineering",
-    issuer: "Coursera (IBM)",
+    issuer: "IBM (Coursera)",
     issued: "July 2025",
     credentialUrl: "https://drive.google.com/file/d/1ph4-0TiNVdxF0ibVERYAcDQfoUjELgMb/view?usp=sharing",
   },
@@ -99,7 +105,7 @@ export const certifications: Certification[] = [
   },
   {
     title: "Accounting for Non-Accountants with Financial Statements Analysis",
-    issuer: "BANKERS INSTITUTE OF THE PHILIPPINES, INC.",
+    issuer: "Bankers Institute of the Philippines, Inc.",
     issued: "June 2021",
     credentialUrl: "https://drive.google.com/file/d/1qvhDD4JboUEN6LDj_AdMi3YWS50qK0vL/view?usp=sharing",
   }
