@@ -1,4 +1,4 @@
-// Tech Stack section — a grid of tech icons grouped by category. Split out
+// Tech Stack section — rows of tech badges grouped by category. Split out
 // from the About section so it gets its own nav entry (see NAV_LINKS in
 // sidebar.tsx). Content comes from src/data/tech-stack.ts so it can be
 // edited without touching this file.
@@ -28,7 +28,9 @@ export function TechStackSection() {
             <h3 className="text-sm font-semibold tracking-wide text-zinc-400 uppercase dark:text-zinc-500">
               {group.category}
             </h3>
-            <div className="mt-2 grid grid-cols-4 gap-3 sm:grid-cols-6 md:grid-cols-8">
+            {/* flex-wrap lets the badges flow onto new lines naturally,
+                since each one is only as wide as its label. */}
+            <div className="mt-2 flex flex-wrap gap-2">
               {group.items.map((tech) => (
                 <TechIcon
                   key={tech.label}
@@ -36,7 +38,7 @@ export function TechStackSection() {
                   label={tech.label}
                   fallback={
                     tech.fallbackIcon && (
-                      <tech.fallbackIcon className="h-6 w-6 text-zinc-500 dark:text-zinc-400" />
+                      <tech.fallbackIcon className="h-4 w-4 text-zinc-500 dark:text-zinc-400" />
                     )
                   }
                 />

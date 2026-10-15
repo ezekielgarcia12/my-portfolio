@@ -42,32 +42,40 @@ export type ExperienceGroup = {
   // The company/organization this happened at. Optional — a personal
   // milestone (e.g. writing your first program) won't have one.
   company?: string;
+  // Set to true to hide the length of service (e.g. "7 yrs 7 mos") shown
+  // to the right of the company name — useful for schools, where a
+  // "years of service" figure doesn't really fit. Shown by default.
+  hideLengthOfService?: boolean;
   // At least one position. A company you were promoted within lists more
   // than one, newest first.
   positions: ExperiencePosition[];
 };
 
 export const experience: ExperienceGroup[] = [
-  // {
-  //   id: "webdev200",
-  //   startDate: "October 2026",
-  //   endDate: null,
-  //   company: "WebDev200",
-  //   positions: [
-  //     {
-  //       id: "continuing-to-build-and-learn",
-  //       title: "Software Backend Developer",
-  //       startDate: "October 2026",
-  //       endDate: null,
-  //       description:
-  //         "Still growing — exploring new tools and taking on more ambitious projects.",
-  //     },
-  //   ],
-  // },
+  {
+    id: "webdev200-inc",
+    startDate: "October 2026",
+    endDate: null,
+    company: "WebDev200, Inc.",
+    positions: [
+      {
+        id: "backend-developer",
+        title: "Software Backend Developer",
+        startDate: "October 2026",
+        endDate: null,
+        description:
+        [
+          "Designed, built, and maintained scalable server-side logic, RESTful APIs, and core backend architecture for web applications.",
+          "Modeled database structures and optimized SQL queries to reduce response times and ensure high data integrity.",
+          "Integrated third-party APIs and microservices to support complex business workflows and real-time data exchange."
+        ],
+      },
+    ],
+  },
   {
     id: "herma-corporation",
     startDate: "April 2019",
-    endDate: null,
+    endDate: "October 2026",
     company: "Herma Corporation - Quezon City, PH",
     positions: [
       {
@@ -87,8 +95,10 @@ export const experience: ExperienceGroup[] = [
         title: "Business Application Associate",
         startDate: "April 2019",
         endDate: "March 2021",
-        description:
-          "Provide day-to-day support for ERP applications, including user assistance, issue resolution, and system monitoring. Investigate, troubleshoot, and resolve ERP-related incidents and system defects.",
+        description: [
+          "Delivering day-to-day ERP support, including user assistance, proactive system monitoring, and the investigation, troubleshooting, and resolution of defects and incidents.",
+          "Developed responsive and interactive user interfaces using PHP, Laravel, and Blade templates, optimizing overall system performance and user experience."
+        ],
       },
     ],
   },
@@ -97,6 +107,7 @@ export const experience: ExperienceGroup[] = [
     startDate: "2015",
     endDate: "2019",
     company: "Asian Institute of Computer Studies - Quezon City, PH",
+    hideLengthOfService: true,
     positions: [
       {
         id: "graduated-aics-position",

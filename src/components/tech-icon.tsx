@@ -20,8 +20,10 @@ type TechIconProps = {
 
 export function TechIcon({ label, icon, fallback }: TechIconProps) {
   return (
-    <div className="flex flex-col items-center gap-1.5">
-      <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-zinc-100 bg-white dark:border-zinc-800 dark:bg-zinc-900">
+    // Pill-shaped badge: a small logo followed by the tool's name, so the
+    // whole stack reads as a compact row of tags rather than a grid of tiles.
+    <div className="inline-flex items-center gap-1.5 rounded-full border border-zinc-200 bg-white py-1 pr-3 pl-2 transition-colors hover:border-red-300 dark:border-zinc-800 dark:bg-zinc-900 dark:hover:border-red-900">
+      <div className="flex h-4 w-4 shrink-0 items-center justify-center">
         {icon ? (
           // Most of these icons are plain black/white marks that need to
           // flip with the theme — render both variants and let dark: hide
@@ -32,18 +34,20 @@ export function TechIcon({ label, icon, fallback }: TechIconProps) {
           // wrapper div, not StackIcon's className — StackIcon sets its own
           // inline `display` style, which would otherwise override it.
           <>
-            <div className="dark:hidden">
-              <StackIcon name={icon} variant="light" className="h-6 w-6" />
+            {/* These wrappers are flex (not block) so the SVG isn't sat on a
+                text line, which would add space below it and push it upward. */}
+            <div className="flex dark:hidden">
+              <StackIcon name={icon} variant="light" className="h-4 w-4" />
             </div>
-            <div className="hidden dark:block">
-              <StackIcon name={icon} variant="dark" className="h-6 w-6" />
+            <div className="hidden dark:flex">
+              <StackIcon name={icon} variant="dark" className="h-4 w-4" />
             </div>
           </>
         ) : (
           fallback
         )}
       </div>
-      <span className="text-center text-xs font-medium text-zinc-500 dark:text-zinc-400">
+      <span className="text-xs font-medium whitespace-nowrap text-zinc-700 dark:text-zinc-300">
         {label}
       </span>
     </div>

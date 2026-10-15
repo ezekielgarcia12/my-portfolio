@@ -19,6 +19,67 @@ function formatDuration(range: { startDate: string; endDate: string | null }) {
   return `${range.startDate} - ${range.endDate}`;
 }
 
+const MONTH_NAMES = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
+
+// Reads a display date like "April 2019" (or just "2015") into a year and
+// a month index (0-11). The month is null when only a year was given.
+function parseDisplayDate(text: string) {
+  const parts = text.split(" ");
+  if (parts.length === 1) {
+    return { year: Number(parts[0]), month: null };
+  }
+  return { year: Number(parts[1]), month: MONTH_NAMES.indexOf(parts[0]) };
+}
+
+// Turns a start/end pair into a length of service, e.g. "6 yrs 7 mos".
+// Counts both the start and end month (April-March is a full 2 years),
+// the same way LinkedIn does. "Present" uses today's date — note this is
+// worked out when the page is built, not live in the visitor's browser.
+function formatLengthOfService(range: { startDate: string; endDate: string | null }) {
+  const start = parseDisplayDate(range.startDate);
+
+  let end;
+  if (range.endDate === null) {
+    const today = new Date();
+    end = { year: today.getFullYear(), month: today.getMonth() };
+  } else {
+    end = parseDisplayDate(range.endDate);
+  }
+
+  let totalMonths;
+  if (start.month === null || end.month === null) {
+    // Year-only dates (e.g. "2015 - 2019") — just count whole years.
+    totalMonths = (end.year - start.year) * 12;
+  } else {
+    totalMonths = (end.year - start.year) * 12 + (end.month - start.month) + 1;
+  }
+
+  const years = Math.floor(totalMonths / 12);
+  const months = totalMonths % 12;
+
+  const pieces = [];
+  if (years > 0) {
+    pieces.push(`${years} ${years === 1 ? "yr" : "yrs"}`);
+  }
+  if (months > 0) {
+    pieces.push(`${months} ${months === 1 ? "mo" : "mos"}`);
+  }
+  return pieces.join(" ");
+}
+
 // A position's description is either one paragraph or a list of bullet
 // points (e.g. a set of achievements), or left out entirely for a
 // milestone that doesn't need one — see src/data/experience.ts.
@@ -70,16 +131,27 @@ export function Timeline({ items }: { items: ExperienceGroup[] }) {
               )}
             </div>
 
-            <div className={isLast ? "" : "pb-10"}>
+            {/* flex-1 makes this column fill the row, so the length of
+                service can sit at the far right edge. */}
+            <div className={isLast ? "flex-1" : "flex-1 pb-10"}>
               <p className="text-sm font-medium text-red-600 dark:text-red-400">
                 {formatDuration(item)}
               </p>
 
               {isCompany ? (
                 <>
-                  <h3 className="mt-1 font-semibold text-black dark:text-white">
-                    {item.company}
-                  </h3>
+                  {/* Company name on the left, total length of service
+                      pushed to the far right of the same line. */}
+                  <div className="mt-1 flex items-baseline justify-between gap-4">
+                    <h3 className="font-semibold text-black dark:text-white">
+                      {item.company}
+                    </h3>
+                    {!item.hideLengthOfService && (
+                      <span className="shrink-0 text-xs font-medium whitespace-nowrap text-zinc-400 dark:text-zinc-500">
+                        {formatLengthOfService(item)}
+                      </span>
+                    )}
+                  </div>
                   {/* One position: e.g. "Application Developer (March
                       2021 - Present)". More than one (a promotion, say)
                       lists each with its own date range and description. */}
